@@ -1,0 +1,7 @@
+interface:
+  display_name: "Foresight Radar"
+  short_description: "Source maps and signal briefs for any theme."
+  default_prompt: "Use $foresight-radar to create a source map and brief for a theme over a date range."
+
+policy:
+  allow_implicit_invocation: true
