@@ -2,6 +2,8 @@
 
 Use this when designing Foresight Radar HTML reports or deciding how to visualize a theme. These are public-output patterns to learn from, not proprietary methods to copy or impersonate.
 
+Use `visual-lens-catalog.md` first. A lens defines the analytical job, such as strategy portfolio, source audit, risk landscape, or trend exploration. This file then helps choose the visual grammar, such as radar, heatmap, timeline, map, card wall, network, or matrix.
+
 ## Boundary Rule
 
 Do not say the report uses McKinsey, Gartner, Forrester, Bloomberg, WEF, Thoughtworks, DHL, Sitra, or GOV.UK methodology. Say it uses public visual patterns inspired by comparable artifacts.
@@ -308,7 +310,7 @@ Avoid when:
 
 ## Pattern Selection Guide
 
-Use this table before designing the HTML.
+Use this table after choosing the analytical lenses.
 
 | User question | Best pattern | Secondary pattern |
 |---|---|---|
@@ -320,6 +322,8 @@ Use this table before designing the HTML.
 | What should we discuss? | Signal cards | Debate cards |
 | Are our sources good enough? | Source health board | Evidence table |
 | What is moving between runs? | Radar movement | Timeline |
+
+Do not treat this guide as a fixed dashboard recipe. A report may use no radar, no heatmap, or no timeline if those patterns do not fit the evidence.
 
 ## Scientific / Analytical Discipline
 

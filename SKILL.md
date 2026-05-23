@@ -217,14 +217,18 @@ Use `references/html-report-spec.md` for:
 
 Use `references/visual-patterns.md` when deciding which visualization pattern fits the data. The patterns are inspired by public, inspectable examples from technology radars, foresight toolkits, analyst quadrants/waves, risk maps, market maps, and financial dashboards. Do not claim proprietary access to any firm's methods.
 
+Use `references/visual-lens-catalog.md` before designing the HTML. Do not force Summary/Radar/Heatmap as a fixed dashboard. Select the best lenses for the user's intent, evidence shape, and decision context. Radar, heatmap, timeline, portfolio, landscape, scenario, risk, source-health, and evidence views are all optional lenses, not mandatory decoration.
+
 Use `references/scoring-governance.md` whenever the report uses numeric scores, ranks, indexes, heatmaps, color intensity, bubble size, confidence values, or other quantitative-looking encodings.
 
-Do not reduce the report to one radar chart. Prefer multiple coordinated views: snapshot, heatmap, radar/scatter, timeline, cluster map, signal cards, source health, debate cards, and evidence table.
+Do not reduce the report to one radar chart. Prefer multiple coordinated lenses chosen for the assignment, such as strategic portfolio, scenario, landscape, risk, heatmap, radar/scatter, timeline, signal cards, source health, debate cards, and evidence table.
 
-Standard HTML navigation:
+Adaptive HTML navigation:
 
 - a compact sticky header with theme, period, geography, and coverage status
-- top tabs for Summary, Radar, Heatmap, Timeline, Signals, Sources, and Method
+- top tabs based on the selected lenses, usually 5 to 8 tabs
+- always include Summary or Executive Summary, Evidence, and Method/Definitions
+- use Radar, Heatmap, Timeline, Portfolio, Scenario, Landscape, Risk, or Source tabs only when the evidence and user question justify them
 - tabs either switch panels or scroll to sections without reloading the page
 - filters remain visible or quickly reachable
 - hover previews source, date, and summary without layout shift

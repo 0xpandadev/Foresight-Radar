@@ -108,6 +108,31 @@ Avoid views whose only answer is:
 - this query returned more search results
 - this source mentioned the topic more often
 
+## Adaptive Lens Selection
+
+Do not hard-code the report into Summary + Radar + Heatmap. Those are useful only when they fit the assignment.
+
+Before designing the tabs or panels, use `visual-lens-catalog.md` to select the right lenses. Choose based on:
+
+- user intent: strategy choice, trend exploration, market map, risk watch, source audit, technology adoption, evidence review
+- evidence shape: dated events, comparable entities, lifecycle stages, relationships, official metrics, qualitative signals, contradictions, coverage gaps
+- output posture: executive brief, analyst landscape, risk monitor, strategy workshop, source audit, investment memo, or trend exploration
+
+Most reports should include:
+
+- 1 orientation lens
+- 2 to 4 analysis lenses
+- 1 evidence inspection lens
+- 1 method and definition lens
+
+Always include a way to inspect evidence and a way to inspect method. Do not include a lens only because it looks impressive.
+
+At generation time, include a short rationale in the Method section:
+
+- selected lenses and why they fit
+- rejected lenses that would have misled or added noise
+- caveats for each quantitative-looking view
+
 ## Minimum Data Model
 
 The report should render from Foresight Radar items plus run metadata.
@@ -184,17 +209,26 @@ Evidence Layer
   Evidence table and source health
 ```
 
-## Standard Navigation
+## Adaptive Navigation
 
-Every interactive HTML report should include a compact sticky top header with tabs. The exact labels can vary, but the default set is:
+Every interactive HTML report should include a compact sticky top header with tabs. The exact labels should come from the selected lenses, not a fixed dashboard template.
+
+Always include:
 
 - `Summary`: strategic summary, key changes, watch next
+- `Method`: definitions, scoring rules, visual encodings, denominators, and limitations
+- an evidence inspection view, usually `Evidence`, `Signals`, `Sources`, or `Ledger`
+
+Common optional tabs:
+
 - `Radar`: maturity, impact, urgency, evidence strength, or other meaningful axes
 - `Heatmap`: evidence-backed intensity, uncertainty, impact, source quality, or rubric-based judgment
 - `Timeline`: sequence of developments and milestones
-- `Signals`: cards and detailed evidence for each signal
+- `Portfolio`: strategic options, resource allocation, or action posture
+- `Landscape`: market, value-chain, category, or ecosystem structure
+- `Scenario`: uncertainty drivers and plausible futures
+- `Risk`: exposure, interconnection, regulation, control gaps
 - `Sources`: source health, coverage, candidates, gaps, and caveats
-- `Method`: definitions, scoring rules, visual encodings, denominators, and limitations
 
 Tabs may switch visible panels or scroll to sections, but they must:
 
@@ -214,7 +248,7 @@ Standard interaction behavior:
 
 ## Visual Panels
 
-Choose panels using `visual-patterns.md`. The goal is not to imitate any named firm. Use public visual grammar as design inspiration, then adapt it to Foresight Radar's evidence model.
+Choose panels using `visual-lens-catalog.md` first and `visual-patterns.md` second. A lens defines the analytical question; a visual pattern defines the chart grammar. The goal is not to imitate any named firm. Use public visual grammar as design inspiration, then adapt it to Foresight Radar's evidence model.
 
 ### 1. Signal Heatmap
 
@@ -487,7 +521,8 @@ Use heavier libraries only when they earn their cost:
 Before considering an HTML report good:
 
 - it opens as a single `.html` file without running a server
-- it has a sticky top header with tabs for summary, visuals, signals/evidence, sources, and method
+- it has a sticky top header with tabs chosen from the selected lens set
+- it includes a visible lens rationale in Method or Definitions
 - first screen explains the theme, period, and current state in 5 seconds
 - each panel supports a different question
 - each panel has a clear evidence basis and caveat
@@ -502,17 +537,22 @@ Before considering an HTML report good:
 - no visual uses non-exhaustive item counts as if they measured market activity or importance
 - hover, click, filter, sort, and drawer interactions still work offline
 
-## Suggested V1 Panels
+## Suggested V1 Lens Set
 
-For the first prototype, build only:
+For the first prototype, build only the lenses justified by the assignment. A common baseline is:
 
-1. Snapshot
-2. Heatmap
-3. Timeline
-4. Signal cards
-5. Evidence drawer
-6. Source health
-7. Debate cards
+1. Executive Summary
+2. 2 to 4 selected analysis lenses from `visual-lens-catalog.md`
+3. Signal or Evidence Ledger
+4. Source Health or Coverage Gap when source quality matters
+5. Method And Definitions
+
+Example bundles:
+
+- strategy work: Executive Summary, Strategic Implications Map, Option Portfolio, Evidence Ledger, Method
+- trend work: Executive Summary, Horizon Scan, Trend Radar or Maturity Curve, Signal Cards, Evidence Ledger, Method
+- risk work: Executive Summary, Risk Landscape, Regulation Timeline, Exposure or Control Gap Map, Evidence Ledger, Method
+- source audit: Executive Summary, Source Health, Coverage Gap, Evidence Ledger, Method
 
 Defer:
 

@@ -142,21 +142,35 @@ Foresight Radar can also produce a local HTML discussion surface.
 
 The default output is a portable single-file `.html` report. It should open directly in a browser, work from a file preview, and be easy to send to another person without asking them to start a server. CSS, JavaScript, and report data should be embedded in the file unless the user explicitly asks for a hosted app or a larger operational UI.
 
-Standard reports include a compact top tab bar:
+Reports use an adaptive top tab bar. The exact tabs should be chosen from the report's evidence and purpose, not from a fixed dashboard template.
 
-- Summary
+Common tabs include:
+
+- Summary or Executive Summary
 - Radar
 - Heatmap
 - Timeline
+- Portfolio
+- Landscape
+- Scenario
+- Risk
 - Signals
-- Sources
+- Sources or Evidence
 - Method
 
 Hover should preview the signal. Click should open evidence, a detail drawer, or a filtered table. The Method tab should explain definitions, visual encodings, scoring rules, caveats, and source coverage.
 
 The goal is not one decorative radar chart. The goal is a set of coordinated views that help you notice, compare, inspect, debate, and decide what to watch next.
 
-Suggested panels:
+The skill includes a visual lens catalog so each report can choose the right workbench:
+
+- strategy portfolio for decision work
+- trend radar or horizon scan for foresight work
+- market landscape or value-chain map for ecosystem work
+- risk landscape, regulation timeline, exposure map, or control gap map for risk work
+- source health, coverage gap, and evidence ledger for research quality
+
+Common lens examples:
 
 - Snapshot
 - Signal Heatmap
@@ -235,6 +249,7 @@ Use $foresight-radar to decide whether this theme is ready for weekly monitoring
     ├── item-schema.md
     ├── profile-template.md
     ├── scoring-governance.md
+    ├── visual-lens-catalog.md
     ├── source-map-template.md
     ├── taxonomy.md
     ├── test-profiles.md
