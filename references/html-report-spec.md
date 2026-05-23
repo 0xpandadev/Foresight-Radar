@@ -15,6 +15,32 @@ It should help the user:
 - see counter-signals and uncertainty
 - decide what to watch next
 
+## Portable Artifact Requirement
+
+Default to a single self-contained `.html` artifact.
+
+The file should:
+
+- open directly from the filesystem with a double click or `file://` URL
+- be easy to send to another person as one file
+- render without starting a local server
+- embed report data as JSON inside a script tag
+- embed CSS and JavaScript in the HTML
+- avoid local asset paths that will break on another machine
+- avoid remote API calls, login, backend services, or runtime secrets
+- preserve hover, click, tab, filter, sort, and drawer interactions offline
+
+Do not create a React, Vite, Next.js, Node, Express, or other server/build-based UI for a normal report. Use a multi-file or server app only when the user explicitly asks for one, the dataset is too large for a single file, or the report needs authentication, persistence, collaboration, recurring refresh, or hosted deployment.
+
+If a server-based UI is necessary, state:
+
+- why single-file HTML is insufficient
+- what command starts it
+- what still works if the server is not running
+- whether a portable export is also provided
+
+Avoid CDN dependencies by default. If a library is necessary, prefer embedding the minimal code or choose plain HTML/CSS/JS. A shared report should not go blank because another user's browser cannot reach a CDN.
+
 ## Metric Integrity
 
 Foresight Radar does not assume exhaustive collection. Raw counts from news articles, search results, collected items, or source mentions are usually not meaningful measures of importance, momentum, urgency, or market heat.
@@ -157,6 +183,34 @@ Discussion Layer
 Evidence Layer
   Evidence table and source health
 ```
+
+## Standard Navigation
+
+Every interactive HTML report should include a compact sticky top header with tabs. The exact labels can vary, but the default set is:
+
+- `Summary`: strategic summary, key changes, watch next
+- `Radar`: maturity, impact, urgency, evidence strength, or other meaningful axes
+- `Heatmap`: evidence-backed intensity, uncertainty, impact, source quality, or rubric-based judgment
+- `Timeline`: sequence of developments and milestones
+- `Signals`: cards and detailed evidence for each signal
+- `Sources`: source health, coverage, candidates, gaps, and caveats
+- `Method`: definitions, scoring rules, visual encodings, denominators, and limitations
+
+Tabs may switch visible panels or scroll to sections, but they must:
+
+- work without page reloads
+- show an active state
+- preserve current filters where practical
+- remain usable on mobile as a horizontal tab strip, dropdown, or segmented control
+- never hide the current theme, period, or coverage caveat
+
+Standard interaction behavior:
+
+- hover previews title, source, date, summary, and basis
+- click opens a drawer, expanded card, cell summary, or filtered evidence table
+- clicking a visual method label opens the relevant definition or scoring explanation
+- filters show an active state and a clear reset action
+- evidence URLs remain one click away
 
 ## Visual Panels
 
@@ -411,14 +465,16 @@ Conflicting evidence:
 
 ## Performance Notes
 
-V0 should be a static local HTML file with embedded or loaded JSON. Avoid a backend.
+V0 should be a static local HTML file with embedded JSON. Avoid a backend and avoid loading a separate local JSON file unless the user explicitly wants a folder-based artifact.
 
 Good first implementation:
 
 - plain HTML/CSS/JS
-- local JSON array embedded in script tag
+- local JSON array embedded in a script tag
 - no external API calls
-- no build step unless the surrounding project already has one
+- no local server
+- no build step
+- no required CDN
 
 Use heavier libraries only when they earn their cost:
 
@@ -430,6 +486,8 @@ Use heavier libraries only when they earn their cost:
 
 Before considering an HTML report good:
 
+- it opens as a single `.html` file without running a server
+- it has a sticky top header with tabs for summary, visuals, signals/evidence, sources, and method
 - first screen explains the theme, period, and current state in 5 seconds
 - each panel supports a different question
 - each panel has a clear evidence basis and caveat
@@ -442,6 +500,7 @@ Before considering an HTML report good:
 - the chosen visual pattern matches the data type according to `visual-patterns.md`
 - any numeric score, rank, index, confidence value, color intensity, or bubble size has visible methodology according to `scoring-governance.md`
 - no visual uses non-exhaustive item counts as if they measured market activity or importance
+- hover, click, filter, sort, and drawer interactions still work offline
 
 ## Suggested V1 Panels
 

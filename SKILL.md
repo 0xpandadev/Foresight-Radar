@@ -195,6 +195,10 @@ Do not present a generic trend list. Every item should change what the user unde
 
 HTML reports are discussion surfaces, not decorative dashboards. Use them after Markdown and item data exist, or when the user explicitly asks for a prototype.
 
+Default delivery is a portable, self-contained `.html` file that can be opened directly, previewed, and shared with another person without starting a local server. Embed the CSS, JavaScript, and report data in the HTML unless the user explicitly asks for a hosted app or the dataset is too large for a single file.
+
+Do not create a React/Vite/Next app, Node server, backend, build step, or multi-file viewer for a normal Foresight Radar HTML report. Use a server-based UI only when the user explicitly asks for an app, persistent hosted dashboard, authentication, very large data, or recurring operational workflow. When a server is used, explain why a single-file HTML was not enough.
+
 Default HTML purpose:
 
 ```text
@@ -216,6 +220,16 @@ Use `references/visual-patterns.md` when deciding which visualization pattern fi
 Use `references/scoring-governance.md` whenever the report uses numeric scores, ranks, indexes, heatmaps, color intensity, bubble size, confidence values, or other quantitative-looking encodings.
 
 Do not reduce the report to one radar chart. Prefer multiple coordinated views: snapshot, heatmap, radar/scatter, timeline, cluster map, signal cards, source health, debate cards, and evidence table.
+
+Standard HTML navigation:
+
+- a compact sticky header with theme, period, geography, and coverage status
+- top tabs for Summary, Radar, Heatmap, Timeline, Signals, Sources, and Method
+- tabs either switch panels or scroll to sections without reloading the page
+- filters remain visible or quickly reachable
+- hover previews source, date, and summary without layout shift
+- click opens a detail drawer, expanded card, or filtered evidence table
+- Method or Definitions exposes visual definitions, scoring rules, caveats, and source coverage
 
 Do not build heatmaps, rankings, trend claims, or visual intensity from raw news counts, search-result counts, article counts, or opportunistic item counts. Foresight Radar does not assume exhaustive collection. If a count is shown, label it as coverage or corpus metadata and explain the source universe and limitations.
 

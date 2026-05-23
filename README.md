@@ -140,6 +140,20 @@ When the data is qualitative or incomplete, Foresight Radar should use evidence 
 
 Foresight Radar can also produce a local HTML discussion surface.
 
+The default output is a portable single-file `.html` report. It should open directly in a browser, work from a file preview, and be easy to send to another person without asking them to start a server. CSS, JavaScript, and report data should be embedded in the file unless the user explicitly asks for a hosted app or a larger operational UI.
+
+Standard reports include a compact top tab bar:
+
+- Summary
+- Radar
+- Heatmap
+- Timeline
+- Signals
+- Sources
+- Method
+
+Hover should preview the signal. Click should open evidence, a detail drawer, or a filtered table. The Method tab should explain definitions, visual encodings, scoring rules, caveats, and source coverage.
+
 The goal is not one decorative radar chart. The goal is a set of coordinated views that help you notice, compare, inspect, debate, and decide what to watch next.
 
 Suggested panels:
@@ -170,7 +184,7 @@ The skill includes a visual reference catalog inspired by public, inspectable ar
 - trend cards
 - source health boards
 
-It does not claim proprietary access to any firm’s methods. It borrows public visual grammar and adapts it to a transparent evidence model:
+It does not claim proprietary access to any firm's methods. It borrows public visual grammar and adapts it to a transparent evidence model:
 
 ```text
 Signal -> Evidence -> Interpretation -> Counter-signal -> Watch Next
