@@ -59,6 +59,7 @@ If the user gives only a theme, default to `watch` over the last 7 days and say 
 4. Normalize items.
    - Use the item schema in `references/item-schema.md`.
    - Cluster duplicates before summarizing.
+   - Treat article, search-result, and collected-item counts as coverage metadata, not as evidence of importance, momentum, urgency, or market heat, unless the collection universe is intentionally complete and comparable.
    - Score items only when scores improve comparison, ranking, filtering, or visualization.
    - If scores are used, apply the scoring governance rules in `references/scoring-governance.md`.
 
@@ -215,6 +216,17 @@ Use `references/visual-patterns.md` when deciding which visualization pattern fi
 Use `references/scoring-governance.md` whenever the report uses numeric scores, ranks, indexes, heatmaps, color intensity, bubble size, confidence values, or other quantitative-looking encodings.
 
 Do not reduce the report to one radar chart. Prefer multiple coordinated views: snapshot, heatmap, radar/scatter, timeline, cluster map, signal cards, source health, debate cards, and evidence table.
+
+Do not build heatmaps, rankings, trend claims, or visual intensity from raw news counts, search-result counts, article counts, or opportunistic item counts. Foresight Radar does not assume exhaustive collection. If a count is shown, label it as coverage or corpus metadata and explain the source universe and limitations.
+
+Before choosing a chart, define:
+
+- the analytical question
+- the metric or qualitative axis
+- why that metric is meaningful
+- whether the value is measured, calculated, or analyst judgment
+- the denominator or source universe when a count or rate is used
+- what the visual must not be interpreted to mean
 
 ## Not In Scope For V0
 

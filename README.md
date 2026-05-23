@@ -120,6 +120,22 @@ If scores, ranks, indexes, heatmaps, bubble sizes, confidence values, or color i
 
 If the evidence is thin, qualitative labels are preferred over invented precision.
 
+## Counts Are Not Insight
+
+Foresight Radar does not assume exhaustive collection.
+
+That means raw news counts, search-result counts, article counts, or collected-item counts should not be used as a proxy for importance, momentum, urgency, or market heat.
+
+Counts can be useful as coverage metadata:
+
+- how many evidence rows were reviewed
+- how many core sources were checked
+- how many primary-source items support a claim
+
+But a category with more collected articles is not automatically more important. If a heatmap, bubble size, rank, or trend line uses a number, the report must explain why that number is meaningful, what the denominator is, and what the visual must not be interpreted to mean.
+
+When the data is qualitative or incomplete, Foresight Radar should use evidence cards, timelines, debate cards, or clear labels instead of pretending a weak count is a metric.
+
 ## Interactive HTML Reports
 
 Foresight Radar can also produce a local HTML discussion surface.

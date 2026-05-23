@@ -15,6 +15,73 @@ It should help the user:
 - see counter-signals and uncertainty
 - decide what to watch next
 
+## Metric Integrity
+
+Foresight Radar does not assume exhaustive collection. Raw counts from news articles, search results, collected items, or source mentions are usually not meaningful measures of importance, momentum, urgency, or market heat.
+
+Do not use raw item counts to drive:
+
+- heatmap color
+- bubble size
+- rank
+- trend direction
+- urgency
+- importance
+- "hotness"
+
+unless the report uses a fixed source universe, a stable collection protocol, comparable time windows, and a disclosed denominator.
+
+Counts may be shown as corpus or coverage metadata:
+
+- items reviewed
+- sources checked
+- primary sources represented
+- evidence rows supporting a claim
+
+When counts are shown, label them as coverage metadata and include the caveat that they are not a measure of total market activity unless the collection method supports that claim.
+
+Prefer meaningful metrics:
+
+- official or primary-source figures
+- calculated rates with a clear denominator
+- disclosed company metrics
+- regulatory actions from a defined register
+- severity measures such as CVSS or official incident severity
+- source diversity and primary-source confirmation
+- time-to-event, filing date, enforcement date, release date, or deployment milestone
+- analyst judgment with a visible rubric and per-item rationale
+
+If no meaningful metric exists, use qualitative labels, evidence cards, timelines, or debate cards instead of a quantitative-looking chart.
+
+## View Design Checklist
+
+Before adding a visual panel, define:
+
+- question: what does this view help the user understand?
+- basis: what evidence, metric, or qualitative rubric drives it?
+- source owner: official statistic, calculated metric, analyst judgment, or not scored
+- denominator: source universe or denominator when using a count/rate
+- caveat: what the view must not be interpreted to mean
+- fallback: how to show the same idea without scores if the data is thin
+
+Good Foresight Radar views usually answer one of these:
+
+- What changed during the period?
+- Which signals have the strongest primary-source support?
+- Which signals have high impact but high uncertainty?
+- Which themes are early, emerging, material, or cautionary?
+- Which risks or themes appear connected?
+- Which sources are high-yield, noisy, or missing?
+- Which hypotheses are supported, contradicted, or still open?
+- What should be watched next?
+
+Avoid views whose only answer is:
+
+- more articles appeared here
+- this category has the most collected items
+- this query returned more search results
+- this source mentioned the topic more often
+
 ## Minimum Data Model
 
 The report should render from Foresight Radar items plus run metadata.
@@ -97,14 +164,14 @@ Choose panels using `visual-patterns.md`. The goal is not to imitate any named f
 
 ### 1. Signal Heatmap
 
-Purpose: show where activity concentrates.
+Purpose: show where evidence-backed intensity, impact, uncertainty, or source quality concentrates.
 
 Single-theme mode:
 
 - rows: subcategories
 - columns: impact, urgency, novelty, evidence, confidence
 - color: score intensity
-- badge: item count
+- badge: coverage metadata only, such as evidence rows reviewed, when useful
 - methodology: visible or one click away when color represents a score
 
 Multi-theme mode:
@@ -117,7 +184,7 @@ Multi-theme mode:
 
 Interactions:
 
-- hover: show item count, top signal, average confidence, source diversity
+- hover: show coverage metadata, top signal, confidence basis, source diversity
 - click: filter item list to that cell and open a cell summary
 - click score/method label: show score owner, scale, dimensions, weights, formula, and caveats
 
@@ -147,7 +214,7 @@ Purpose: show sequence, clustering, and acceleration.
 
 - x-axis: date
 - lanes: categories or source tiers
-- marker size: signal strength
+- marker size: severity, official magnitude, or analyst-scored signal strength only when the method is visible
 
 Interactions:
 
@@ -164,7 +231,7 @@ Simple first version:
 - grouped cards by cluster
 - cluster title
 - representative item
-- count
+- coverage metadata when useful
 - confidence
 
 Later version:
@@ -275,6 +342,8 @@ The UI should always make it clear when filters are active.
 
 - Every visual must answer a question.
 - Do not use charts that imply precision the data does not support.
+- Do not use raw news/item/source counts as proxies for heat, importance, urgency, or momentum.
+- If a count appears, disclose the source universe and label it as coverage metadata unless it is an official statistic or a calculated metric with a valid denominator.
 - Keep raw evidence one click away.
 - Mark low-confidence and weak-source items visibly.
 - Show counter-signals and unknowns, not only confirming evidence.
@@ -363,6 +432,7 @@ Before considering an HTML report good:
 
 - first screen explains the theme, period, and current state in 5 seconds
 - each panel supports a different question
+- each panel has a clear evidence basis and caveat
 - hover and click reveal evidence, not decorative effects
 - a user can trace every major statement to a source
 - low confidence and unknowns are visible
@@ -371,6 +441,7 @@ Before considering an HTML report good:
 - the design does not look like a generic AI dashboard
 - the chosen visual pattern matches the data type according to `visual-patterns.md`
 - any numeric score, rank, index, confidence value, color intensity, or bubble size has visible methodology according to `scoring-governance.md`
+- no visual uses non-exhaustive item counts as if they measured market activity or importance
 
 ## Suggested V1 Panels
 

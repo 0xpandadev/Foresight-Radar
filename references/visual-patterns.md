@@ -99,7 +99,7 @@ Foresight Radar adaptation:
 
 - x-axis: evidence strength, momentum, or strategic direction
 - y-axis: impact, readiness, or current traction
-- bubble size: source diversity or item volume
+- bubble size: meaningful magnitude, source diversity, or official/carefully defined metric
 - opacity: confidence
 - show criteria drawer, not a black-box ranking
 - if values are judgment-based, label them as analyst judgment, not measured facts
@@ -166,7 +166,7 @@ Foresight Radar adaptation:
 
 - rows or groups: value-chain segments, buyer groups, technical layers
 - cards: entities or signals
-- badge: source count, latest update, confidence
+- badge: latest evidence, source quality, confidence, or coverage metadata
 - click: evidence drawer
 
 Avoid when:
@@ -185,7 +185,7 @@ Core visual grammar:
 
 - matrix of rows and columns
 - color encodes intensity
-- bubble size can encode frequency, impact, or evidence
+- bubble size can encode meaningful magnitude, impact, evidence strength, or source diversity
 - hover reveals detail
 
 Use when:
@@ -199,13 +199,14 @@ Foresight Radar adaptation:
 - rows: categories, subthemes, verticals, source tiers
 - columns: impact, urgency, novelty, evidence, confidence, momentum
 - color: signal strength
-- size: item count or source diversity
+- size: meaningful magnitude, source diversity, or coverage metadata only when labeled
 - border: accelerating or new
 - if signal strength is composite, expose the formula, dimensions, and weights
 
 Avoid when:
 
 - scores are arbitrary and not explained
+- color or size would be driven by non-exhaustive news/item counts
 - too many categories make the grid unreadable
 
 ### Timeline / Event Stream
@@ -220,7 +221,7 @@ Core visual grammar:
 
 - sequence matters
 - lanes separate categories or source types
-- marker size or color shows magnitude
+- marker size or color shows meaningful magnitude, official severity, or disclosed analytical judgment
 
 Use when:
 
@@ -232,7 +233,7 @@ Foresight Radar adaptation:
 
 - lanes: regulation, incidents, company moves, research, weak signals
 - marker: item
-- marker size: signal strength
+- marker size: severity or signal strength only when the method is visible
 - marker outline: primary source
 
 Avoid when:
@@ -312,7 +313,7 @@ Use this table before designing the HTML.
 | User question | Best pattern | Secondary pattern |
 |---|---|---|
 | What changed this period? | Timeline | Signal cards |
-| Where is activity concentrated? | Heatmap | Cluster map |
+| Where is evidence-backed impact, uncertainty, or source quality concentrated? | Heatmap | Cluster map |
 | Which signals are mature vs weak? | Radar | Hype/maturity curve |
 | How do risks relate? | Risk network | Debate cards |
 | How do vendors/entities compare? | Quadrant/wave | Market map |
@@ -324,9 +325,13 @@ Use this table before designing the HTML.
 
 Use these principles so the visual is not just decoration:
 
+- Start with the analytical question, not the chart type.
 - State what each axis means.
 - Show the scoring fields that drive position, color, or size.
 - Use scores only when they add clarity. Prefer qualitative labels when data is thin.
+- Do not use non-exhaustive news, search-result, or collected-item counts as proxies for importance, urgency, momentum, or heat.
+- If counts are displayed, label them as coverage metadata unless they come from an official statistic, fixed source universe, or defined register.
+- Prefer meaningful measured or calculated metrics: official counts, rates with denominators, severity ratings, filing dates, source diversity, primary-source confirmation, or deployment evidence.
 - Identify score owner: official statistic, calculated metric, analyst judgment, or not scored.
 - Show scale definitions, weights, formulas, and per-item rationale for scores that affect the visual.
 - Warn when scores are not probabilities, forecasts, or official measurements.
