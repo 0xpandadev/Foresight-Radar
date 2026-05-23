@@ -68,6 +68,7 @@ If the user gives only a theme, default to `watch` over the last 7 days and say 
    - Put direct evidence before interpretation.
    - Separate Fact, Inference, Assumption, Unknown, and Watchpoint.
    - Include source links for important claims.
+   - Apply `references/plus-alpha.md` to add compact, evidence-linked extra value such as hidden decisions, contradictions, watch triggers, source gaps, or what not to conclude.
    - If the user asks for an HTML, GUI, dashboard, viewer, board, visualization, hover/click behavior, or interactive report, use `references/html-report-spec.md`.
 
 6. Improve the radar.
@@ -218,6 +219,8 @@ Use `references/html-report-spec.md` for:
 Use `references/visual-patterns.md` when deciding which visualization pattern fits the data. The patterns are inspired by public, inspectable examples from technology radars, foresight toolkits, analyst quadrants/waves, risk maps, market maps, and financial dashboards. Do not claim proprietary access to any firm's methods.
 
 Use `references/visual-lens-catalog.md` before designing the HTML. Do not force Summary/Radar/Heatmap as a fixed dashboard. Select the best lenses for the user's intent, evidence shape, and decision context. Radar, heatmap, timeline, portfolio, landscape, scenario, risk, source-health, and evidence views are all optional lenses, not mandatory decoration.
+
+Use `references/plus-alpha.md` after selecting lenses. Add 1 to 3 compact plus-alpha elements by default for HTML reports: hidden decision, unexpected signal, contradiction, strategic implication, watch trigger, better lens suggestion, source gap, discussion prompt, what not to conclude, or metric opportunity. If evidence is thin, use source gaps and caveats instead of invented insight.
 
 Use `references/scoring-governance.md` whenever the report uses numeric scores, ranks, indexes, heatmaps, color intensity, bubble size, confidence values, or other quantitative-looking encodings.
 

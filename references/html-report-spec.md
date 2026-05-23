@@ -133,6 +133,41 @@ At generation time, include a short rationale in the Method section:
 - rejected lenses that would have misled or added noise
 - caveats for each quantitative-looking view
 
+## Plus-Alpha Intelligence Layer
+
+Use `plus-alpha.md` after selecting the lens set. The report should not merely visualize what was collected; it should add compact, evidence-linked interpretive value.
+
+Include 1 to 3 plus-alpha elements by default, unless the user explicitly asks for a plain export.
+
+Good plus-alpha elements include:
+
+- hidden decision: the choice implied by the evidence
+- unexpected signal: the non-obvious item that changes interpretation
+- tension or contradiction: where evidence disagrees
+- strategic implication: what this means for options, capabilities, timing, or risk
+- watch trigger: the next event, threshold, filing, standard, release, incident, or date that would change the interpretation
+- better lens suggestion: what view should be used next time and why
+- source gap: missing source type, geography, actor, or language
+- discussion prompt: a question the user should debate
+- what not to conclude: a tempting but unsupported interpretation
+- metric opportunity: meaningful metric to add if this becomes recurring
+
+Placement:
+
+- Summary can show a compact "So What / Watch Next" strip.
+- Signal cards can carry plus-alpha badges.
+- Method can show "what not to conclude" and lens rationale.
+- Sources can show source gaps and candidates.
+- Evidence drawer can show the evidence behind each plus-alpha item.
+
+Guardrails:
+
+- tie each plus-alpha item to evidence, a source gap, or an explicit inference
+- do not add unsupported recommendations
+- do not add more than 3 unless the user asks for a workshop view
+- do not use plus-alpha to hide weak evidence behind confident language
+- if the evidence is thin, prefer source gaps, caveats, and next-collection suggestions
+
 ## Minimum Data Model
 
 The report should render from Foresight Radar items plus run metadata.
@@ -148,7 +183,18 @@ Run metadata:
   "geography": "Japan + global",
   "profiles_used": ["risk-security-governance"],
   "coverage_summary": "Core sources checked; discovery used for gaps",
-  "limitations": ["No login-gated sources", "Coverage is not exhaustive"]
+  "limitations": ["No login-gated sources", "Coverage is not exhaustive"],
+  "plus_alpha": [
+    {
+      "type": "watch_trigger",
+      "title": "Next signal to watch",
+      "body": "Short evidence-linked prompt",
+      "evidence_refs": ["item_id_or_url"],
+      "confidence": "medium",
+      "action": "What to watch next",
+      "caveat": "Why this is not a forecast"
+    }
+  ]
 }
 ```
 
@@ -523,6 +569,7 @@ Before considering an HTML report good:
 - it opens as a single `.html` file without running a server
 - it has a sticky top header with tabs chosen from the selected lens set
 - it includes a visible lens rationale in Method or Definitions
+- it includes 1 to 3 plus-alpha elements, or clearly explains why evidence is too thin and what should be collected next
 - first screen explains the theme, period, and current state in 5 seconds
 - each panel supports a different question
 - each panel has a clear evidence basis and caveat

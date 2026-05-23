@@ -40,6 +40,7 @@ Then select:
 - 2 to 4 analysis lenses: how to see the pattern
 - 1 evidence lens: how to inspect support
 - 1 method lens: how definitions, scoring, and caveats are explained
+- 1 to 3 plus-alpha elements from `plus-alpha.md`: the extra interpretive value the user did not explicitly request
 
 Use 3 to 7 substantive lenses for most reports. More than 7 usually becomes a gallery rather than a useful workbench.
 

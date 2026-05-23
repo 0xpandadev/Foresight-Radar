@@ -170,6 +170,8 @@ The skill includes a visual lens catalog so each report can choose the right wor
 - risk landscape, regulation timeline, exposure map, or control gap map for risk work
 - source health, coverage gap, and evidence ledger for research quality
 
+Reports also include a plus-alpha intelligence layer: 1 to 3 compact, evidence-linked additions that make the output more useful than a mechanical dashboard. Examples include hidden decisions, unexpected signals, contradictions, watch triggers, source gaps, discussion prompts, what not to conclude, and better-lens suggestions for the next run.
+
 Common lens examples:
 
 - Snapshot
